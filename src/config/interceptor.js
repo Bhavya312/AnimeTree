@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: "https://kitsu.io/api/edge/anime",
-  timeout: 1000,
+  // timeout: 2000,
   headers: {'Content-Type': 'application/json'}
 });
 

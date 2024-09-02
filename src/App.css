@@ -301,3 +301,32 @@ h6 {
   }
 }
 /* End of generes */
+
+
+/* animelist start */
+.animelist {
+  position: relative;
+  padding: 5rem 0;
+}
+
+.animecards-center{
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+}
+.animecard-content p{
+  height: 8vh;
+}
+
+.animecard {
+  position: relative;
+}
+
+.card-buttons {
+  position: absolute;
+  bottom: 0;
+}
+/* animelist end */
