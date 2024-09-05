@@ -1,33 +1,15 @@
 import { useContext } from "react"
-import { Box, Button, Card, CardActions, CardContent, CardMedia, FormControl, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { AnimeContext } from "../Context";
+import { Link } from "react-router-dom";
 
 const AnimeList = () => {
-  const [animes,  handleNext, handlePrev, handleCategory, handleSearch, category] = useContext(AnimeContext);
+  const [animes, handleNext, handlePrev, handleCategory, handleSearch, category, error] = useContext(AnimeContext);
+  
+  if(error) return (<h2>{error}</h2>)
   return (  
     <>
     <section className="animelist">
-      <div className="search-anime">
-        <label htmlFor="anime">Search Anime</label>
-        <input type="text" name="anime" placeholder="search" onChange={handleSearch}/>
-      </div>
-
-      <Box className="categories-anime">
-        <FormControl sx={{minWidth:150}}>
-          <InputLabel id="demo-simple-select-label">Categories</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={category}
-            label="Age"
-            onChange={handleCategory}
-          >
-            <MenuItem value="action">Action</MenuItem>
-            <MenuItem value="romance">Romance</MenuItem>
-            <MenuItem value="adventure">Adventure</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
       <div className="animecards-center">
         {
           animes.length ?
@@ -45,17 +27,27 @@ const AnimeList = () => {
                 <Typography variant="body2" sx={{ color: 'text.secondary'}}>
                   {anime.attributes.description.substr(0, 60)}...
                 </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary'}}>
+                  <strong>Released:{anime.attributes.startDate}</strong>
+                </Typography>
               </CardContent>
               <CardActions className="card-buttons">
-                <Button size="small">Read More</Button>
+                <Button size="small">
+                  <Link to={`/animes/`+anime.id}>
+                    Read More
+                  </Link>
+                </Button>
               </CardActions>
             </Card>
           ))
-          : <h1>No Animes Found</h1>
+          : 
+          <h2>No Animes Found</h2>
         }
       </div>
-      <Button onClick={handlePrev}>Prev</Button>
-      <Button onClick={handleNext}>Next</Button>
+      <div className="anime-pagination">
+        <Button onClick={handlePrev} variant="outlined" className="page-link">Prev</Button>
+        <Button onClick={handleNext} variant="outlined" className="page-link">Next</Button>
+      </div>
     </section>
     </>
   )

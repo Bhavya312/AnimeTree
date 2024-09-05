@@ -20,9 +20,8 @@ export default function AnimeProvider({children}) {
           var params = {'page[number]':count};
           if(category) { params = {...params, 'filter[categories]':category}}
           if(search) { params = {...params, 'filter[text]':search} }
-
-          const response = await get(api.LIST, {params:params});
-        setAnimes(response.data.data);
+            const response = await get(api.LIST, {params:params});
+            setAnimes(response.data.data);
       }catch(e){
         setError(e.message);
       }
@@ -38,9 +37,9 @@ export default function AnimeProvider({children}) {
     setCount(count + 1);
   }
 
-  const handleSearch = (e) => {
+  const handleSearch = (value) => {
       setTimeout(() => {
-        setSearch(e.target.value)
+        setSearch(value)
       }, 2500)
   }
 
@@ -50,7 +49,7 @@ export default function AnimeProvider({children}) {
 
   return (
     <AnimeContext.Provider
-      value={[animes, handleNext, handlePrev, handleCategory, handleSearch, category]}
+      value={[animes, handleNext, handlePrev, handleCategory, handleSearch, category, error]}
     >
       {children}
     </AnimeContext.Provider>
