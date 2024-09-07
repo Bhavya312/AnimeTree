@@ -1,16 +1,16 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import AnimeProvider from './context.jsx'
+import { ErrorBoundary } from 'react-error-boundary'
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-    <AnimeProvider>
       <BrowserRouter>
+      <ErrorBoundary fallback={<>Something went wrong</>}>
         <App />
+      </ErrorBoundary>
       </BrowserRouter>
-    </AnimeProvider>
   // </StrictMode>,
 )

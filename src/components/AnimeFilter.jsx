@@ -28,6 +28,8 @@ const AnimeFilter = ({handleCategory, handleSearch, category}) => {
                 <MenuItem value="action">Action</MenuItem>
                 <MenuItem value="romance">Romance</MenuItem>
                 <MenuItem value="adventure">Adventure</MenuItem>
+                <MenuItem value="isekai">Isekai</MenuItem>
+                <MenuItem value="crime">Crime</MenuItem>
               </Select>
             </FormControl>
           </Box>
