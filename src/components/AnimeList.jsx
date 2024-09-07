@@ -8,7 +8,6 @@ import {
   // Pagination,
   Typography,
 } from "@mui/material";
-// import { AnimeContext } from "../Context";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { api, get } from "../config/config";
