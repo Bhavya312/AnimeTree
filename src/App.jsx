@@ -13,7 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/animes" element={<Anime />}></Route>
+        <Route path="/animes/" element={<Anime />}></Route>
         <Route path="/animes/:id" element={<AnimeDetail />}></Route>
         <Route path='*' element={<PageNotFound />} />
       </Routes>

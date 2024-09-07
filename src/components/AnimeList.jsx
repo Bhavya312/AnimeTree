@@ -118,7 +118,7 @@ const AnimeList = () => {
               </Card>
             ))
           ) : (
-            <h2>No Animes Found</h2>
+            <h2>Loading...</h2>
           )}
         </div>
         <div className="anime-pagination">
