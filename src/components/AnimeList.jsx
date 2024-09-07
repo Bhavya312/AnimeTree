@@ -1,64 +1,64 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
+  // Button,
+  // Card,
+  // CardActions,
+  // CardContent,
+  // CardMedia,
   // Pagination,
-  Typography,
+  // Typography,
 } from "@mui/material";
 // import { AnimeContext } from "../Context";
-import { Link } from "react-router-dom";
-import moment from "moment";
-import { api, get } from "../config/config";
-import AnimeFilter from "./AnimeFilter";
+// import { Link } from "react-router-dom";
+// import moment from "moment";
+// import { api, get } from "../config/config";
+// import AnimeFilter from "./AnimeFilter";
 
 const AnimeList = () => {
-  const [animes, setAnimes] = useState([]);
-  const [error, setError] = useState("");
-  const [count, setCount] = useState(1);
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
+  // const [animes, setAnimes] = useState([]);
+  // const [error, setError] = useState("");
+  // const [count, setCount] = useState(1);
+  // const [search, setSearch] = useState("");
+  // const [category, setCategory] = useState("");
   // const [page, setPage] = useState(1);
   // const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    const getAnime = async () => {
-      try {
-        var params = { "page[number]": count };
-        if (category) {
-          params = { ...params, "filter[categories]": category };
-        }
-        if (search) {
-          params = { ...params, "filter[text]": search };
-        }
-        const response = await get(api.LIST, { params: params });
-        setAnimes(response.data.data);
-      } catch (e) {
-        setError(e.message);
-      }
-    };
-    getAnime();
-  }, [count, search, category]);
+  // useEffect(() => {
+  //   const getAnime = async () => {
+  //     try {
+  //       var params = { "page[number]": count };
+  //       if (category) {
+  //         params = { ...params, "filter[categories]": category };
+  //       }
+  //       if (search) {
+  //         params = { ...params, "filter[text]": search };
+  //       }
+  //       const response = await get(api.LIST, { params: params });
+  //       setAnimes(response.data.data);
+  //     } catch (e) {
+  //       setError(e.message);
+  //     }
+  //   };
+  //   getAnime();
+  // }, [count, search, category]);
 
-  const handlePrev = () => {
-    if (count !== 1) setCount(count - 1);
-  };
+  // const handlePrev = () => {
+  //   if (count !== 1) setCount(count - 1);
+  // };
 
-  const handleNext = () => {
-    setCount(count + 1);
-  };
+  // const handleNext = () => {
+  //   setCount(count + 1);
+  // };
 
-  const handleSearch = (value) => {
-    setTimeout(() => {
-      setSearch(value);
-    }, 2500);
-  };
+  // const handleSearch = (value) => {
+  //   setTimeout(() => {
+  //     setSearch(value);
+  //   }, 2500);
+  // };
 
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-  };
+  // const handleCategory = (e) => {
+  //   setCategory(e.target.value);
+  // };
 
   // const handlePage = (event, v) => {
   //   if (offset > 0) {
@@ -71,10 +71,10 @@ const AnimeList = () => {
   //   setPage(v);
   // };
 
-  if (error) return <h2>{error}</h2>;
+  // if (error) return <h2>{error}</h2>;
   return (
     <>
-      <AnimeFilter
+      {/* <AnimeFilter
         handleCategory={handleCategory}
         handleSearch={handleSearch}
         category={category}
@@ -130,7 +130,7 @@ const AnimeList = () => {
             Next
           </Button>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
